@@ -1,16 +1,16 @@
 import React from "react";
 import { Link, Outlet } from "react-router";
 import AddIcon from "@mui/icons-material/Add";
-import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import PeopleIcon from '@mui/icons-material/People';
 
-const LibrarianLayout = () => {
+const AdminLayout = () => {
   return (
     <>
       {/* <Toaster position="top-right" reverseOrder={false} /> */}
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
-          {/* Navbar */}
+          
           <nav className="navbar w-full bg-base-300">
             <label
               htmlFor="my-drawer-4"
@@ -33,7 +33,7 @@ const LibrarianLayout = () => {
                 <path d="M14 10l2 2l-2 2"></path>
               </svg>
             </label>
-            <div className="px-4">Navbar Title</div>
+            <div className="px-4"><h1 className="text-2xl font-extrabold text-purple-700"> Admin Section</h1></div>
           </nav>
 
           <Outlet />
@@ -75,24 +75,15 @@ const LibrarianLayout = () => {
               </li>
               <li>
                 <Link
-                  to="add-books"
+                  to="users"
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="Add a Book"
+                  data-tip="All Users"
                 >
-                  <AddIcon className="my-1.5 inline-block size-4" />
-                  <span className="is-drawer-close:hidden">Add a Book</span>
+                  <PeopleIcon className="my-1.5 inline-block size-4" />
+                  <span className="is-drawer-close:hidden">All Users</span>
                 </Link>
               </li>
-               <li>
-                <Link
-                  to="my-books"
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
-                  data-tip="My Books"
-                >
-                  <FormatBoldIcon className="my-1.5 inline-block size-4" />
-                  <span className="is-drawer-close:hidden">My Books</span>
-                </Link>
-              </li>
+              
 
             
             </ul>
@@ -103,4 +94,4 @@ const LibrarianLayout = () => {
   );
 };
 
-export default LibrarianLayout;
+export default AdminLayout;

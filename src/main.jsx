@@ -13,6 +13,8 @@ import AddBooks from "./Librarian/AddBooks";
 import MyBooks from "./Librarian/MyBooks";
 import EditBooks from "./Librarian/EditBooks";
 import PrivateRoute from "./Shared/PrivateRoute";
+import AdminLayout from "./Admin/AdminLayout";
+import Users from "./Admin/Users";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,13 @@ const router = createBrowserRouter([
       { path: "my-books", element: <MyBooks/> },
       { path: "edit-books/:id", element: <EditBooks/>}
 
+    ]
+  },
+  {
+    path:"admin",
+    element: <PrivateRoute><AdminLayout/></PrivateRoute>,
+    children:[
+      { path: "users", element: <Users/> }
     ]
   }
 ]);

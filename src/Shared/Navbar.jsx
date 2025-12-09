@@ -8,7 +8,7 @@ import ThemeToggle from "./ThemeToggle";
 const Navbar = () => {
   const active = "  text-green-500 rounded-md  transition duration-300";
 
-  const { user, logOut, isLoading } = useContext(AuthContext);
+  const { user, logOut, isLoading, librarian, admin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const onClickLogin = () => {
@@ -36,12 +36,30 @@ const Navbar = () => {
       </li>
       {user && (
         <>
+          
+        </>
+      )}
+      {user && librarian && (
+        <>
           <li>
             <NavLink
               to="/librarian"
               className={({ isActive }) => (isActive ? active : undefined)}
             >
-             Librarian
+              Librarian Panel
+            </NavLink>
+          </li>
+        </>
+      )}
+
+      {user && admin && (
+        <>
+          <li>
+            <NavLink
+              to="/admin"
+              className={({ isActive }) => (isActive ? active : undefined)}
+            >
+              Admin Panel
             </NavLink>
           </li>
         </>

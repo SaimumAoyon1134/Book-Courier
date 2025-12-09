@@ -4,6 +4,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import "animate.css";
+import instance from "../Axios/instance";
 const Login = () => {
   const emailRef = useRef("");
   const { signIn, reset, googleSignIn } = useContext(AuthContext);
@@ -56,7 +57,23 @@ const Login = () => {
   };
 
   const handleSignGoogle = () => {
-    googleSignIn();
+    googleSignIn().then(() => {
+        const data ={
+            email: auth.currentUser.email,
+            name: auth.currentUser.displayName || auth.currentUser.email.split("@")[0],
+            librarian: false,
+            admin: false,
+          };
+          instance.post("/users", data).then(() => {
+            setSuccess(true);
+          }).catch((err) => {
+            if (err.response?.status == 409) {
+              setError("This email is already registered");
+            } else {
+              setError("Registration failed");
+            }
+          });
+    });
     navigate("/");
   };
 
