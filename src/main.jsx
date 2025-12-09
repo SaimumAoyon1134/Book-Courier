@@ -12,6 +12,7 @@ import LibrarianLayout from "./Librarian/LibrarianLayout";
 import AddBooks from "./Librarian/AddBooks";
 import MyBooks from "./Librarian/MyBooks";
 import EditBooks from "./Librarian/EditBooks";
+import PrivateRoute from "./Shared/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
   },
   {
     path:"librarian",
-    element: <LibrarianLayout/>,
+    element: <PrivateRoute><LibrarianLayout/></PrivateRoute>,
     children:[
       { path: "add-books", element: <AddBooks/> },
       { path: "my-books", element: <MyBooks/> },
