@@ -23,9 +23,9 @@ const MyBooks = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="min-h-screen flex  justify-center bg-gray-100 px-4">
-      <div className="w-full  bg-white rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
-        <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800">
+    <div className="min-h-screen flex  justify-center  px-4">
+      <div className="w-full   rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
+        <h2 className="text-2xl font-semibold text-center mb-6 ">
           My Books
         </h2>
         <div className="overflow-x-auto">
@@ -47,7 +47,7 @@ const MyBooks = () => {
               {books.map((book, index) => {
                 return (
                   <tr key={book._id}
-                   className="hover:bg-gray-100 hover:scale-[1.01]">
+                   className=" hover:scale-[1.01]">
                     <td>
                       <span className="text-purple-600 font-bold">{index + 1}</span>
                     

@@ -2,6 +2,9 @@ import React from "react";
 import { Link, Outlet } from "react-router";
 import AddIcon from "@mui/icons-material/Add";
 import FormatBoldIcon from '@mui/icons-material/FormatBold';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ThemeToggle from "../Shared/ThemeToggle";
+import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
 
 const LibrarianLayout = () => {
   return (
@@ -11,7 +14,7 @@ const LibrarianLayout = () => {
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Navbar */}
-          <nav className="navbar w-full bg-base-300">
+          <nav className="navbar w-full  flex justify-between bg-[#ebf3cd] text-[#f75408]">
             <label
               htmlFor="my-drawer-4"
               aria-label="open sidebar"
@@ -33,7 +36,8 @@ const LibrarianLayout = () => {
                 <path d="M14 10l2 2l-2 2"></path>
               </svg>
             </label>
-            <div className="px-4">Navbar Title</div>
+            <div className="px-4 items-center flex justify-center"><h1 className="text-2xl font-extrabold  text-center"> Librarian Section</h1></div>
+            <ThemeToggle/>
           </nav>
 
           <Outlet />
@@ -48,7 +52,7 @@ const LibrarianLayout = () => {
           ></label>
           <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
             {/* Sidebar content here */}
-            <ul className="menu w-full grow">
+            <ul className="menu w-full grow pt-15 bg-[#3d4c02] text-[#f75408] ">
               {/* List item */}
               <li>
                 <Link
@@ -93,6 +97,26 @@ const LibrarianLayout = () => {
                   <span className="is-drawer-close:hidden">My Books</span>
                 </Link>
               </li>
+                   <li>
+                    <Link
+                    to="orders"
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="Orders"
+                    >
+                    <AirportShuttleIcon className="my-1.5 inline-block size-4" />
+                    <span className="is-drawer-close:hidden">Orders</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                    to="myprofile"
+                    className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                    data-tip="My Profile"
+                    >
+                    <AccountCircleIcon className="my-1.5 inline-block size-4" />
+                    <span className="is-drawer-close:hidden">My Profile</span>
+                    </Link>
+                </li>
 
             
             </ul>

@@ -6,7 +6,9 @@ import { FaRegUserCircle } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
-  const active = "  text-green-500 rounded-md  transition duration-300";
+  const active = "  text-[#f75408] rounded-md  transition duration-300 font-extrabold";
+  const inactive =
+    "  text-gray-700 hover:text-[#f75408] rounded-md  transition duration-300 font-extrabold"; 
 
   const { user, logOut, isLoading, librarian, admin } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -29,9 +31,18 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? active : undefined)}
+          className={({ isActive }) => (isActive ? active : inactive)}
         >
           Home
+        </NavLink>
+      </li>
+       
+       <li>
+        <NavLink
+          to="/coverage"
+          className={({ isActive }) => (isActive ? active : inactive)}
+        >
+          Coverage
         </NavLink>
       </li>
       {user && (
@@ -44,7 +55,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/librarian"
-              className={({ isActive }) => (isActive ? active : undefined)}
+              className={({ isActive }) => (isActive ? active : inactive)}
             >
               Librarian Panel
             </NavLink>
@@ -57,7 +68,7 @@ const Navbar = () => {
           <li>
             <NavLink
               to="/admin"
-              className={({ isActive }) => (isActive ? active : undefined)}
+              className={({ isActive }) => (isActive ? active : inactive)}
             >
               Admin Panel
             </NavLink>
@@ -67,7 +78,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar shadow-sm">
+    <div className="navbar shadow-sm bg-[#ebf3cd]  px-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -94,15 +105,15 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <NavLink to={"/"} className="btn btn-ghost text-xl">
+        <NavLink to={"/"} className="font-extrabold text-xl">
           {" "}
-          <p className="hidden md:flex">Book Courier</p>
+          <p className="hidden md:flex text-[#f75408]">Book Courier</p>
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end gap-2">
+      <div className="navbar-end  text-[#f75408] gap-2">
         <ThemeToggle />
         {isLoading ? (
           <span className="loading loading-spinner loading-xl"></span>
@@ -133,7 +144,7 @@ const Navbar = () => {
 
             <button
               onClick={onClickSignOut}
-              className="btn  bg-gradient-to-r from-[#6A11CB] to-[#2575FC] text-white"
+              className="px-2 py-1 rounded-2xl hover:bg-white hover:text-[#f75408] bg-[#f75408] text-white"
             >
               Sign Out
             </button>
@@ -142,13 +153,13 @@ const Navbar = () => {
           <div className="flex flex-row space-x-1">
             <button
               onClick={onClickLogin}
-              className="btn  bg-gradient-to-r from-[#6A11CB] to-[#2575FC] text-white"
+                className="px-2 py-1 rounded-2xl bg-white text-[#f75408] hover:bg-[#f75408] hover:text-white"
             >
               Login
             </button>
             <button
               onClick={onClickSignUp}
-              className="btn bg-gradient-to-r from-[#6A11CB] to-[#2575FC] text-white "
+               className="px-2 py-1 rounded-2xl bg-white text-[#f75408] hover:bg-[#f75408] hover:text-white"
             >
               SignUp
             </button>

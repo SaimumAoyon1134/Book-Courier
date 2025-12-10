@@ -16,7 +16,7 @@ const Users = () => {
   const handleMakeLibrarian = (user) => {   
     
     Swal.fire({
-  title: "Do you want to save the changes?",
+  title: "Do you want to save the changes of Librarian Role?",
   showDenyButton: true,
   showCancelButton: true,
   confirmButtonText: "Save",
@@ -86,9 +86,9 @@ const Users = () => {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="min-h-screen flex  justify-center bg-gray-100 px-4">
-      <div className="w-full  bg-white rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
-        <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800">
+    <div className="min-h-screen flex  justify-center  px-4">
+      <div className="w-full   rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
+        <h2 className="text-2xl font-semibold text-center mb-6 ">
           All Users
         </h2>
         <div className="overflow-x-auto">
@@ -108,7 +108,7 @@ const Users = () => {
                 return (
                   <tr
                     key={user._id}
-                    className="hover:bg-gray-100 hover:scale-[1.01]"
+                    className="opacity-80 hover:opacity-100 hover:scale-[1.01]"
                   >
                     <td>
                       <span className="text-purple-600 font-bold">
@@ -116,7 +116,7 @@ const Users = () => {
                       </span>
                     </td>
                     <td>
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center text-teal-600 gap-3">
                         <div>
                           <div className="font-bold ">{user.name}</div>
                         </div>

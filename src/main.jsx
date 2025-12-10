@@ -15,16 +15,22 @@ import EditBooks from "./Librarian/EditBooks";
 import PrivateRoute from "./Shared/PrivateRoute";
 import AdminLayout from "./Admin/AdminLayout";
 import Users from "./Admin/Users";
+import AllBooks from "./Admin/AllBooks";
+import Home from "./UserSection/Home";
+import Coverage from "./UserSection/Coverage";
+import AddCoverageArea from "./Admin/AddCoverageArea";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <User />,
     children: [
+      { path: "", element: <Home/> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "myprofile", element: <MyProfile /> },
       { path: "forget-password", element: <ForgetPassword/> },
+      { path: "coverage", element: <Coverage/> },
     ],
   },
   {
@@ -33,7 +39,8 @@ const router = createBrowserRouter([
     children:[
       { path: "add-books", element: <AddBooks/> },
       { path: "my-books", element: <MyBooks/> },
-      { path: "edit-books/:id", element: <EditBooks/>}
+      { path: "edit-books/:id", element: <EditBooks/>},
+      { path: "myprofile", element: <MyProfile/>}
 
     ]
   },
@@ -41,7 +48,10 @@ const router = createBrowserRouter([
     path:"admin",
     element: <PrivateRoute><AdminLayout/></PrivateRoute>,
     children:[
-      { path: "users", element: <Users/> }
+      { path: "users", element: <Users/> },
+      { path: "all-books", element: <AllBooks/> },
+      { path: "add-coverage-area", element: <AddCoverageArea/> },
+      { path: "myprofile", element: <MyProfile/>}
     ]
   }
 ]);

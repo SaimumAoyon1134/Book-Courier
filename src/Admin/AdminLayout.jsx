@@ -2,6 +2,10 @@ import React from "react";
 import { Link, Outlet } from "react-router";
 import AddIcon from "@mui/icons-material/Add";
 import PeopleIcon from '@mui/icons-material/People';
+import ThemeToggle from "../Shared/ThemeToggle";
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
 
 const AdminLayout = () => {
   return (
@@ -11,7 +15,7 @@ const AdminLayout = () => {
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           
-          <nav className="navbar w-full bg-base-300">
+          <nav className="navbar w-full  flex justify-between bg-[#ebf3cd]  text-[#f75408]">
             <label
               htmlFor="my-drawer-4"
               aria-label="open sidebar"
@@ -33,7 +37,8 @@ const AdminLayout = () => {
                 <path d="M14 10l2 2l-2 2"></path>
               </svg>
             </label>
-            <div className="px-4"><h1 className="text-2xl font-extrabold text-purple-700"> Admin Section</h1></div>
+            <div className="px-4 items-center flex justify-center"><h1 className="text-2xl font-extrabold  text-center"> Admin Section</h1></div>
+            <ThemeToggle/>
           </nav>
 
           <Outlet />
@@ -46,9 +51,9 @@ const AdminLayout = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
+          <div className="flex min-h-full flex-col items-start bg-[#3d4c02] text-[#f75408] is-drawer-close:w-14 is-drawer-open:w-64">
             {/* Sidebar content here */}
-            <ul className="menu w-full grow">
+            <ul className="menu w-full  grow pt-15">
               {/* List item */}
               <li>
                 <Link
@@ -81,6 +86,39 @@ const AdminLayout = () => {
                 >
                   <PeopleIcon className="my-1.5 inline-block size-4" />
                   <span className="is-drawer-close:hidden">All Users</span>
+                </Link>
+              </li>
+
+               <li>
+                <Link
+                  to="all-books"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="All Books"
+                >
+                  <MenuBookIcon className="my-1.5 inline-block size-4" />
+                  <span className="is-drawer-close:hidden">All Books</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="add-coverage-area"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Add Coverage Area"
+                >
+                  <AddLocationAltIcon className="my-1.5 inline-block size-4" />
+                  <span className="is-drawer-close:hidden">Add Coverage Area</span>
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="myprofile"
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="My Profile"
+                >
+                  <AccountCircleIcon className="my-1.5 inline-block size-4" />
+                  <span className="is-drawer-close:hidden">My Profile</span>
                 </Link>
               </li>
               

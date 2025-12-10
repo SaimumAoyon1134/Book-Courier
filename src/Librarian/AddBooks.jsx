@@ -14,6 +14,7 @@ const AddBook = () => {
 
   const onSubmit = (data) => {
     data.user=user?.email;
+    data.addedAt=new Date().toISOString();
     console.log("Book Data:", data);
     instance
       .post("/books", data)
@@ -30,10 +31,10 @@ const AddBook = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-screen flex items-center justify-center  px-4">
        
-      <div className="w-full max-w-lg bg-white rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
-        <h2 className="text-2xl font-semibold text-center mb-6 text-gray-800">
+      <div className="w-full max-w-lg  rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
+        <h2 className="text-2xl font-semibold text-center mb-6 ">
           Add New Book
         </h2>
 
@@ -41,13 +42,13 @@ const AddBook = () => {
           
           {/* Book Name */}
           <div >
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium ">
               Book Name
             </label>
             <input
               type="text"
               {...register("name", { required: "Book name is required" })}
-              className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              className="mt-1 w-full rounded-md border  px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
             {errors.name && (
               <p className="text-red-500 text-sm mt-1">
@@ -58,7 +59,7 @@ const AddBook = () => {
 
           {/* Author */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium ">
               Author
             </label>
             <input
@@ -75,7 +76,7 @@ const AddBook = () => {
 
           {/* Book Image */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium ">
               Book Image URL
             </label>
             <input
@@ -87,7 +88,7 @@ const AddBook = () => {
 
           {/* Status */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium ">
               Status
             </label>
             <select
@@ -102,7 +103,7 @@ const AddBook = () => {
 
           {/* Price */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium ">
               Price
             </label>
             <input
@@ -118,7 +119,7 @@ const AddBook = () => {
 
           {/* Description (Optional) */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium ">
               Description
             </label>
             <textarea
