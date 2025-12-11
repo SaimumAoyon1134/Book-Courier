@@ -26,16 +26,16 @@ const Coverage = () => {
   return (
     <div className="px-1 md:px-10 py-4">
       <h1 className="text-center font-bold text-xl py-3 flex items-center justify-center gap-2">
-        <AddLocationIcon className="text-[#748603] animate-[blink_1s_infinite]" />
+        <AddLocationIcon className="text-[#748603] animate-[blink_2s_infinite]" />
         <span className="text-[#f75408]">Coverage Area</span>
       </h1>
 
-      <div className="h-[400px] rounded-lg overflow-hidden shadow-lg">
+      <div className="h-[500px] w-full rounded-lg overflow-hidden shadow-lg">
         <MapContainer
           center={defaultPosition}
           zoom={8}
           scrollWheelZoom={false}
-          className="h-full w-full"
+          className="h-full "
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -50,7 +50,7 @@ const Coverage = () => {
                 icon={customIcon}
               >
                 <Popup>
-                    {console.log(area)}
+              
                   <strong>{area["coverage-area"]}</strong>
                   <br />
                   Lat: {area.latitude}, Lon: {area.longitude}

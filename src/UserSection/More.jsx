@@ -1,17 +1,25 @@
 import React from "react";
 import { FaBook } from "react-icons/fa";
+import { useNavigate } from "react-router";
 
 const More= () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative  h-[300px] flex items-center justify-center overflow-hidden">
       <div className="text-center z-10">
-        <h1 className="text-5xl md:text-6xl font-bold mb-4 animate-bounce">
+        <h1 className="text-xl  font-bold mb-4 animate-pulse text-[#f75408] ">
           BookCourier
+
         </h1>
-        <p className="text-xl md:text-2xl mb-6">
+        <p className="text-xl font-extralight mb-6">
           Your favorite books, delivered fast and safe!
         </p>
-        <button className="px-6 py-3 rounded-lg font-semibold text-[#f75408] bg-[#345d09] hover:scale-105 transition-transform">
+        <button 
+        onClick={()=>{
+            navigate('/allbooks');
+        }}
+        className="px-6 py-3 rounded-lg font-semibold  bg-[#345d09] hover:scale-105 transition-transform">
           Browse Books
         </button>
       </div>
@@ -24,6 +32,8 @@ const More= () => {
           to { transform: rotate(360deg); }
         }
         .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+
+        
       `}</style>
     </section>
   );

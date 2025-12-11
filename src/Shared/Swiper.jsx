@@ -54,7 +54,7 @@ const ContinuousSwiper = () => {
           <SwiperSlide key={item._id}>
             <div
               className="flex flex-col items-center justify-center rounded-xl p-4 h-[300px] cursor-pointer"
-              onClick={() => navigate(`/service/${item._id}`)}
+              onClick={() => navigate(`/book-details/${item._id}`)}
             >
               <img
                 src={

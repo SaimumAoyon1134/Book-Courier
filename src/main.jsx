@@ -19,6 +19,9 @@ import AllBooks from "./Admin/AllBooks";
 import Home from "./UserSection/Home";
 import Coverage from "./UserSection/Coverage";
 import AddCoverageArea from "./Admin/AddCoverageArea";
+import BookDetails from "./UserSection/BookDetails";
+import AllBooksUser from "./UserSection/AllBooksUser";
+import MyOrders from "./UserSection/MyOrders";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,9 @@ const router = createBrowserRouter([
       { path: "myprofile", element: <MyProfile /> },
       { path: "forget-password", element: <ForgetPassword/> },
       { path: "coverage", element: <Coverage/> },
+      { path: "book-details/:id", element: <PrivateRoute><BookDetails/></PrivateRoute>},
+      { path: "/allbooks", element: <AllBooksUser/>},
+      { path: "myorders", element: <PrivateRoute><MyOrders/></PrivateRoute>}
     ],
   },
   {
