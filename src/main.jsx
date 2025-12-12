@@ -22,6 +22,10 @@ import AddCoverageArea from "./Admin/AddCoverageArea";
 import BookDetails from "./UserSection/BookDetails";
 import AllBooksUser from "./UserSection/AllBooksUser";
 import MyOrders from "./UserSection/MyOrders";
+import Success from "./UserSection/Success";
+import Cancel from "./UserSection/Cancel";
+import Orders from "./Librarian/Orders";
+
 
 const router = createBrowserRouter([
   {
@@ -35,8 +39,11 @@ const router = createBrowserRouter([
       { path: "forget-password", element: <ForgetPassword/> },
       { path: "coverage", element: <Coverage/> },
       { path: "book-details/:id", element: <PrivateRoute><BookDetails/></PrivateRoute>},
-      { path: "/allbooks", element: <AllBooksUser/>},
-      { path: "myorders", element: <PrivateRoute><MyOrders/></PrivateRoute>}
+      { path: "allbooks", element: <AllBooksUser/>},
+      { path: "myorders", element: <PrivateRoute><MyOrders/></PrivateRoute>},
+      { path: "success", element: <Success/>},
+      { path: "cancel", element: <Cancel/>}
+
     ],
   },
   {
@@ -46,7 +53,8 @@ const router = createBrowserRouter([
       { path: "add-books", element: <AddBooks/> },
       { path: "my-books", element: <MyBooks/> },
       { path: "edit-books/:id", element: <EditBooks/>},
-      { path: "myprofile", element: <MyProfile/>}
+      { path: "myprofile", element: <MyProfile/>},
+      { path: "orders", element: <Orders/>},
 
     ]
   },
@@ -57,7 +65,7 @@ const router = createBrowserRouter([
       { path: "users", element: <Users/> },
       { path: "all-books", element: <AllBooks/> },
       { path: "add-coverage-area", element: <AddCoverageArea/> },
-      { path: "myprofile", element: <MyProfile/>}
+      { path: "myprofile", element: <MyProfile/>},
     ]
   }
 ]);

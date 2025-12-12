@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import instance from "../Axios/instance";
 import { AuthContext } from "../Context/AuthContext";
-
+import CancelIcon from "@mui/icons-material/Cancel";
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
-  console.log(user.email);
+
   useEffect(() => {
     instance
       .get(`/myorders?email=${user.email}`)
@@ -16,7 +16,11 @@ const MyOrders = () => {
         console.error("Error fetching orders:", error);
       });
   }, [user.email]);
-  console.log("User Orders:", orders);
+  const handlePayment = async (order) => {
+    const res = await instance.post("/create-checkout-session", order);
+
+    window.location.assign(res.data.url);
+  };
   return (
     <div className="min-h-screen flex  justify-center  px-4">
       <div className="w-full   rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
@@ -38,7 +42,7 @@ const MyOrders = () => {
             <tbody>
               {orders.map((order, index) => {
                 return (
-                  <tr key={order._id} className=" hover:scale-[1.01]">
+                  <tr key={order._id} className="opacity-90 hover:opacity-100">
                     <td>
                       <span className="text-purple-600 font-bold">
                         {index + 1}
@@ -68,43 +72,73 @@ const MyOrders = () => {
                       </span>
                     </td>
                     <td>
-                      {order.orderStatus === "OK" ? (
-                        <span className="text-green-500 font-bold">OK</span>
+                      {order.orderStatus === "delivered" ? (
+                        <span className="text-green-500 font-bold">
+                          Delivered
+                        </span>
+                      ) : order.orderStatus === "shipped" ? (
+                        <span className="text-yellow-400 font-bold">
+                          Shipped
+                        </span>
+                      ) : order.orderStatus === "pending" ? (
+                        <span className="text-purple-400 font-bold">
+                          Pending
+                        </span>
                       ) : (
-                        <span className="text-red-500 font-bold">Pending</span>
+                        <span className="text-red-400 font-bold">Canceled</span>
                       )}
                     </td>
                     <td>
                       {order.paymentStatus === "paid" ? (
-                        <span className="text-green-500 font-bold">Paid</span>
+                        <span className="text-green-700 font-bold">Paid</span>
                       ) : (
-                        <span className="text-red-500 font-bold">Unpaid</span>
+                        <button
+                          className={` text-black  bg-amber-300 px-1 rounded ${
+                             order.orderStatus == "canceled"
+                            ? "opacity-40 cursor-not-allowed"
+                            : "hover:bg-red-400 hover:text-white"
+                          }`}
+                          onClick={() => {
+                            handlePayment(order);
+                          }}
+                        >
+                          Pay Now
+                        </button>
                       )}
                     </td>
                     <td>
-                      {order.orderStatus === "pending" ? (
-                        <button
-                          className="btn btn-ghost"
-                          onClick={() => {
-                            instance
-                              .delete(`/order/${order._id}`)
-                              .then((res) => {
-                                if (res.data.deletedCount) {
-                                  setOrders((prev) =>
-                                    prev.filter((o) => o._id !== order._id)
-                                  );
-                                }
-                              })
-                              .catch((err) => {
-                                console.error("Delete failed", err);
-                              });
-                          }}
-                        >
-                          Cancel
-                        </button>
-                      ) : (
-                        ""
-                      )}
+                      <button
+                        className={` ${
+                          order.orderStatus !== "pending"
+                            ? "opacity-40 cursor-not-allowed"
+                            : "hover:text-red-500"
+                        }`}
+                        disabled={order.orderStatus !== "pending"}
+                        onClick={() => {
+                          if (order.orderStatus !== "pending") return;
+
+                          const data = { orderStatus: "canceled" };
+
+                          instance
+                            .patch(`/order/${order._id}`, data)
+                            .then((res) => {
+                              if (res.data.modifiedCount) {
+                                setOrders((prev) =>
+                                  prev.map((o) =>
+                                    o._id === order._id
+                                      ? { ...o, orderStatus: "canceled" }
+                                      : o
+                                  )
+                                );
+                              }
+                            })
+                            .catch((err) => {
+                              console.error("Cancel failed", err);
+                            });
+                        }}
+                      >
+                        <CancelIcon />
+                      </button>
                     </td>
                   </tr>
                 );

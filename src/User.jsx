@@ -16,7 +16,7 @@ export const User = () => {
    <div>
     <Navbar/>
     <Outlet/>
-    {/* <Footer/> */}
+    <Footer/>
    </div>
   )
 }
