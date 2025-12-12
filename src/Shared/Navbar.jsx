@@ -6,9 +6,10 @@ import { FaRegUserCircle } from "react-icons/fa";
 import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
-  const active = "  text-[#f75408] rounded-md  transition duration-300 font-extrabold";
+  const active =
+    "  text-[#f75408] rounded-md  transition duration-300 font-extrabold";
   const inactive =
-    "  text-gray-700 hover:text-[#f75408] rounded-md  transition duration-300 font-extrabold"; 
+    "  text-gray-700 hover:text-[#f75408] rounded-md  transition duration-300 font-extrabold";
 
   const { user, logOut, isLoading, librarian, admin } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-       <li>
+      <li>
         <NavLink
           to="/allbooks"
           className={({ isActive }) => (isActive ? active : inactive)}
@@ -44,8 +45,8 @@ const Navbar = () => {
           All Books
         </NavLink>
       </li>
-       
-       <li>
+
+      <li>
         <NavLink
           to="/coverage"
           className={({ isActive }) => (isActive ? active : inactive)}
@@ -55,14 +56,22 @@ const Navbar = () => {
       </li>
       {user && (
         <>
-           <li>
-        <NavLink
-          to="/myorders"
-          className={({ isActive }) => (isActive ? active : inactive)}
-        >
-         My Orders 
-        </NavLink>
-      </li>
+          <li>
+            <NavLink
+              to="/myorders"
+              className={({ isActive }) => (isActive ? active : inactive)}
+            >
+              My Orders
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/invoices"
+              className={({ isActive }) => (isActive ? active : inactive)}
+            >
+              Invoices
+            </NavLink>
+          </li>
         </>
       )}
       {user && librarian && (
@@ -168,13 +177,13 @@ const Navbar = () => {
           <div className="flex flex-row space-x-1">
             <button
               onClick={onClickLogin}
-                className="px-2 py-1 rounded-2xl bg-white text-[#f75408] hover:bg-[#f75408] hover:text-white"
+              className="px-2 py-1 rounded-2xl bg-white text-[#f75408] hover:bg-[#f75408] hover:text-white"
             >
               Login
             </button>
             <button
               onClick={onClickSignUp}
-               className="px-2 py-1 rounded-2xl bg-white text-[#f75408] hover:bg-[#f75408] hover:text-white"
+              className="px-2 py-1 rounded-2xl bg-white text-[#f75408] hover:bg-[#f75408] hover:text-white"
             >
               SignUp
             </button>

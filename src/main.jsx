@@ -25,6 +25,7 @@ import MyOrders from "./UserSection/MyOrders";
 import Success from "./UserSection/Success";
 import Cancel from "./UserSection/Cancel";
 import Orders from "./Librarian/Orders";
+import Invoices from "./UserSection/Invoices";
 
 
 const router = createBrowserRouter([
@@ -42,7 +43,8 @@ const router = createBrowserRouter([
       { path: "allbooks", element: <AllBooksUser/>},
       { path: "myorders", element: <PrivateRoute><MyOrders/></PrivateRoute>},
       { path: "success", element: <Success/>},
-      { path: "cancel", element: <Cancel/>}
+      { path: "cancel", element: <Cancel/>},
+      { path: "invoices", element:<Invoices/>},
 
     ],
   },

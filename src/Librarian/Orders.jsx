@@ -68,7 +68,8 @@ const Orders = () => {
                   <td>{order.address}</td>
 
                   <td className="text-green-600 font-semibold">
-                    {new Date(order.createdAt).toLocaleString()}
+                    {new Date(order.createdAt).toLocaleDateString()} –
+                    {new Date(order.createdAt).toLocaleTimeString()}
                   </td>
 
                   <td className="text-purple-600 font-semibold">

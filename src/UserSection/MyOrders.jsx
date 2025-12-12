@@ -27,7 +27,7 @@ const MyOrders = () => {
         <h2 className="text-2xl font-semibold text-center mb-6 ">My Orders</h2>
         <div className="overflow-x-auto">
           <table className="table ">
-            <thead>
+            <thead className="bg-purple-600 text-white">
               <tr>
                 <th>Serial No.</th>
                 <th> Book Name</th>
@@ -63,7 +63,8 @@ const MyOrders = () => {
                     </td>
                     <td>
                       <span className="font-bold text-green-600">
-                        {new Date(order.createdAt).toLocaleString()}
+                        {new Date(order.createdAt).toLocaleDateString()} –
+                        {new Date(order.createdAt).toLocaleTimeString()}
                       </span>
                     </td>
                     <td>
@@ -94,9 +95,9 @@ const MyOrders = () => {
                       ) : (
                         <button
                           className={` text-black  bg-amber-300 px-1 rounded ${
-                             order.orderStatus == "canceled"
-                            ? "opacity-40 cursor-not-allowed"
-                            : "hover:bg-red-400 hover:text-white"
+                            order.orderStatus == "canceled"
+                              ? "opacity-40 cursor-not-allowed"
+                              : "hover:bg-red-400 hover:text-white"
                           }`}
                           onClick={() => {
                             handlePayment(order);
