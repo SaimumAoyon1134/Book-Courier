@@ -45,11 +45,11 @@ const Invoices = () => {
                 <tr key={inv._id} className="hover:bg-purple-50">
                   <td className="font-bold text-purple-600">{index + 1}</td>
                   <td className="font-semibold">{inv.paymentId}</td>
-                  <td>{inv.bookName}</td>
+                  <td  className="font-semibold">{inv.bookName}</td>
                   <td className="font-semibold text-green-600">
                     {inv.price}
                   </td>
-                  <td className="">
+                  <td className="font-semibold">
                     {new Date(inv.createdAt).toLocaleDateString()} –
                     {new Date(inv.createdAt).toLocaleTimeString()}
                   </td>
