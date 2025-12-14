@@ -26,54 +26,78 @@ import Success from "./UserSection/Success";
 import Cancel from "./UserSection/Cancel";
 import Orders from "./Librarian/Orders";
 import Invoices from "./UserSection/Invoices";
-
+import { ToastContainer} from "react-toastify";
+import Wishlist from "./UserSection/Wishlist";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <User />,
     children: [
-      { path: "", element: <Home/> },
+      { path: "", element: <Home /> },
       { path: "login", element: <Login /> },
       { path: "register", element: <Register /> },
       { path: "myprofile", element: <MyProfile /> },
-      { path: "forget-password", element: <ForgetPassword/> },
-      { path: "coverage", element: <Coverage/> },
-      { path: "book-details/:id", element: <PrivateRoute><BookDetails/></PrivateRoute>},
-      { path: "allbooks", element: <AllBooksUser/>},
-      { path: "myorders", element: <PrivateRoute><MyOrders/></PrivateRoute>},
-      { path: "success", element: <Success/>},
-      { path: "cancel", element: <Cancel/>},
-      { path: "invoices", element:<Invoices/>},
-
+      { path: "forget-password", element: <ForgetPassword /> },
+      { path: "coverage", element: <Coverage /> },
+      {
+        path: "book-details/:id",
+        element: (
+          <PrivateRoute>
+            <BookDetails />
+          </PrivateRoute>
+        ),
+      },
+      { path: "allbooks", element: <AllBooksUser /> },
+      {
+        path: "myorders",
+        element: (
+          <PrivateRoute>
+            <MyOrders />
+          </PrivateRoute>
+        ),
+      },
+      { path: "success", element: <Success /> },
+      { path: "cancel", element: <Cancel /> },
+      { path: "invoices", element: <Invoices /> },
+      { path: "wishlist", element: <Wishlist/>}
     ],
   },
   {
-    path:"librarian",
-    element: <PrivateRoute><LibrarianLayout/></PrivateRoute>,
-    children:[
-      { path: "add-books", element: <AddBooks/> },
-      { path: "my-books", element: <MyBooks/> },
-      { path: "edit-books/:id", element: <EditBooks/>},
-      { path: "myprofile", element: <MyProfile/>},
-      { path: "orders", element: <Orders/>},
-
-    ]
+    path: "librarian",
+    element: (
+      <PrivateRoute>
+        <LibrarianLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      { path: "add-books", element: <AddBooks /> },
+      { path: "my-books", element: <MyBooks /> },
+      { path: "edit-books/:id", element: <EditBooks /> },
+      { path: "myprofile", element: <MyProfile /> },
+      { path: "orders", element: <Orders /> },
+    ],
   },
   {
-    path:"admin",
-    element: <PrivateRoute><AdminLayout/></PrivateRoute>,
-    children:[
-      { path: "users", element: <Users/> },
-      { path: "all-books", element: <AllBooks/> },
-      { path: "add-coverage-area", element: <AddCoverageArea/> },
-      { path: "myprofile", element: <MyProfile/>},
-    ]
-  }
+    path: "admin",
+    element: (
+      <PrivateRoute>
+        <AdminLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      { path: "users", element: <Users /> },
+      { path: "all-books", element: <AllBooks /> },
+      { path: "add-coverage-area", element: <AddCoverageArea /> },
+      { path: "myprofile", element: <MyProfile /> },
+    ],
+  },
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
+      <ToastContainer />
+
       <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>

@@ -6,9 +6,11 @@ import Why from "./Why";
 import More from "./More";
 import TrustSection from "./TrustSection";
 
+
 const Home = () => {
   return (
     <div>
+       
       <ContinuousSwiper />
       <Latest />
       <Coverage />

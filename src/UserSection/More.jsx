@@ -19,7 +19,7 @@ const More= () => {
         onClick={()=>{
             navigate('/allbooks');
         }}
-        className="px-6 py-3 rounded-lg font-semibold  bg-[#345d09] hover:scale-105 transition-transform">
+        className="px-6 py-3 rounded-lg font-semibold  bg-[#68ba11] hover:scale-105 transition-transform">
           Browse Books
         </button>
       </div>
