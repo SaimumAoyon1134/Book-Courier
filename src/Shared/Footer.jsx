@@ -3,7 +3,7 @@ import XIcon from '@mui/icons-material/X';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
+    <footer className="bg-[#68ba11]  text-gray-600 py-12">
       <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
         
         <div>
@@ -45,7 +45,7 @@ const Footer = () => {
 
       </div>
 
-      <div className="text-center text-gray-400 mt-10">
+      <div className="text-center mt-10">
         © {new Date().getFullYear()} BookCourier. All rights reserved.
       </div>
     </footer>

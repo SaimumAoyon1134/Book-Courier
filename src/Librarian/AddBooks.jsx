@@ -31,9 +31,9 @@ const AddBook = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center  px-4">
+    <div className=" flex py-10 justify-center min-h-screen px-4">
        
-      <div className="w-full max-w-lg  rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
+      <div className="w-full max-w-lg  py-3 rounded-lg  px-6 animate__animated animate__fadeInDown">
         <h2 className="text-2xl font-semibold text-center mb-6 ">
           Add New Book
         </h2>
@@ -132,7 +132,7 @@ const AddBook = () => {
          
           <button
             type="submit"
-            className="w-full col-span-2 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 rounded-md transition duration-200"
+            className="w-full col-span-2 bg-[#68ba11]  hover:bg-[#396b04]  text-white font-medium py-2 rounded-md transition duration-200"
           >
             Add Book
           </button>

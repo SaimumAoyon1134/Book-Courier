@@ -5,6 +5,7 @@ import FormatBoldIcon from '@mui/icons-material/FormatBold';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ThemeToggle from "../Shared/ThemeToggle";
 import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
+import Footer from "../Shared/Footer";
 
 const LibrarianLayout = () => {
   return (
@@ -14,7 +15,7 @@ const LibrarianLayout = () => {
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Navbar */}
-          <nav className="navbar w-full  flex justify-between bg-[#ebf3cd] text-[#f75408]">
+          <nav className="navbar w-full  flex justify-between bg-[#68ba11] ">
             <label
               htmlFor="my-drawer-4"
               aria-label="open sidebar"
@@ -41,6 +42,7 @@ const LibrarianLayout = () => {
           </nav>
 
           <Outlet />
+          <Footer/>
         </div>
 
         <div className="drawer-side is-drawer-close:overflow-visible">
@@ -50,9 +52,9 @@ const LibrarianLayout = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="flex min-h-full flex-col items-start bg-base-200 is-drawer-close:w-14 is-drawer-open:w-64">
+          <div className="flex min-h-full flex-col items-start  is-drawer-close:w-14 is-drawer-open:w-64">
             {/* Sidebar content here */}
-            <ul className="menu w-full grow pt-15 bg-[#3d4c02] text-[#f75408] ">
+            <ul className="menu w-full grow pt-15  font-bold ">
               {/* List item */}
               <li>
                 <Link

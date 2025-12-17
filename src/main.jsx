@@ -28,6 +28,8 @@ import Orders from "./Librarian/Orders";
 import Invoices from "./UserSection/Invoices";
 import { ToastContainer} from "react-toastify";
 import Wishlist from "./UserSection/Wishlist";
+import DashboardLayout from "./Dashboard/DashboardLayout";
+import LibrarianHome from "./Librarian/LibrarianHome";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +66,22 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "dashboard",
+    element:<PrivateRoute><DashboardLayout/></PrivateRoute>,
+    children:[
+       {
+        path: "myorders",
+        element: 
+  
+            <MyOrders />
+        
+        ,
+      },
+    ]
+
+  }
+  ,
+  {
     path: "librarian",
     element: (
       <PrivateRoute>
@@ -71,6 +89,7 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      { path: "", element:<LibrarianHome/>},
       { path: "add-books", element: <AddBooks /> },
       { path: "my-books", element: <MyBooks /> },
       { path: "edit-books/:id", element: <EditBooks /> },
