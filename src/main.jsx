@@ -28,8 +28,11 @@ import Orders from "./Librarian/Orders";
 import Invoices from "./UserSection/Invoices";
 import { ToastContainer} from "react-toastify";
 import Wishlist from "./UserSection/Wishlist";
-import DashboardLayout from "./Dashboard/DashboardLayout";
 import LibrarianHome from "./Librarian/LibrarianHome";
+import UserLayout from "./User/UserLayout";
+import UserHome from "./User/UserHome";
+import AdminHome from "./Admin/AdminHome";
+import UpdateProfile from "./Shared/UpdateProfile";
 
 const router = createBrowserRouter([
   {
@@ -51,7 +54,17 @@ const router = createBrowserRouter([
         ),
       },
       { path: "allbooks", element: <AllBooksUser /> },
-      {
+      { path: "update", element: <UpdateProfile/> },
+     
+      
+    ],
+  },
+  {
+    path: "user-dashboard",
+    element:<PrivateRoute><UserLayout/></PrivateRoute>,
+    children:[
+      { path: "", element:<UserHome/>},
+       {
         path: "myorders",
         element: (
           <PrivateRoute>
@@ -62,21 +75,10 @@ const router = createBrowserRouter([
       { path: "success", element: <Success /> },
       { path: "cancel", element: <Cancel /> },
       { path: "invoices", element: <Invoices /> },
-      { path: "wishlist", element: <Wishlist/>}
-    ],
-  },
-  {
-    path: "dashboard",
-    element:<PrivateRoute><DashboardLayout/></PrivateRoute>,
-    children:[
-       {
-        path: "myorders",
-        element: 
-  
-            <MyOrders />
-        
-        ,
-      },
+      { path: "wishlist", element: <Wishlist/>},
+      { path: "myprofile", element: <MyProfile /> },
+
+
     ]
 
   }
@@ -95,6 +97,7 @@ const router = createBrowserRouter([
       { path: "edit-books/:id", element: <EditBooks /> },
       { path: "myprofile", element: <MyProfile /> },
       { path: "orders", element: <Orders /> },
+
     ],
   },
   {
@@ -105,6 +108,7 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      { path: "", element:<AdminHome/>},
       { path: "users", element: <Users /> },
       { path: "all-books", element: <AllBooks /> },
       { path: "add-coverage-area", element: <AddCoverageArea /> },

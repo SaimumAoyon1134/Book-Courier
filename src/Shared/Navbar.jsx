@@ -58,28 +58,13 @@ const Navbar = () => {
         <>
           <li>
             <NavLink
-              to="/myorders"
+              to="/user-dashboard"
               className={({ isActive }) => (isActive ? active : inactive)}
             >
-              My Orders
+              User Dashboard
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/wishlist"
-              className={({ isActive }) => (isActive ? active : inactive)}
-            >
-              My Wishlist
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/invoices"
-              className={({ isActive }) => (isActive ? active : inactive)}
-            >
-              Invoices
-            </NavLink>
-          </li>
+          
         </>
       )}
       {user && librarian && (

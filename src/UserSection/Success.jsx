@@ -75,7 +75,7 @@ const Success = () => {
           transition={{ duration: 0.8 }}
         >
           <Link
-            to="/myorders"
+            to="/user-dashboard/myorders"
             className="mt-6 inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow-md transition-all duration-300"
           >
             View My Orders

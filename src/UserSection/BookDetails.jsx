@@ -201,14 +201,14 @@ const BookDetails = () => {
 
    
       <div className="mt-10">
-        <h3 className="text-xl font-bold mb-4">Customer Reviews</h3>
+        <h3 className="text-xl font-bold mb-4 px-5">Customer Reviews</h3>
 
         {reviews.length === 0 && (
           <p className="text-gray-500">No reviews yet.</p>
         )}
 
         {reviews.map((r) => (
-          <div key={r._id} className="shadow-lg py-4">
+          <div key={r._id} className="shadow-lg py-4 px-5">
             <p className="font-bold">{r.userName}</p>
             <p className="text-yellow-500">
               {"⭐".repeat(r.rating)}
