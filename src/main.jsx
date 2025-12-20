@@ -26,7 +26,7 @@ import Success from "./UserSection/Success";
 import Cancel from "./UserSection/Cancel";
 import Orders from "./Librarian/Orders";
 import Invoices from "./UserSection/Invoices";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import Wishlist from "./UserSection/Wishlist";
 import LibrarianHome from "./Librarian/LibrarianHome";
 import UserLayout from "./User/UserLayout";
@@ -54,17 +54,19 @@ const router = createBrowserRouter([
         ),
       },
       { path: "allbooks", element: <AllBooksUser /> },
-      { path: "update", element: <UpdateProfile/> },
-     
-      
+      { path: "update", element: <UpdateProfile /> },
     ],
   },
   {
     path: "user-dashboard",
-    element:<PrivateRoute><UserLayout/></PrivateRoute>,
-    children:[
-      { path: "", element:<UserHome/>},
-       {
+    element: (
+      <PrivateRoute>
+        <UserLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      { path: "", element: <UserHome /> },
+      {
         path: "myorders",
         element: (
           <PrivateRoute>
@@ -75,14 +77,10 @@ const router = createBrowserRouter([
       { path: "success", element: <Success /> },
       { path: "cancel", element: <Cancel /> },
       { path: "invoices", element: <Invoices /> },
-      { path: "wishlist", element: <Wishlist/>},
+      { path: "wishlist", element: <Wishlist /> },
       { path: "myprofile", element: <MyProfile /> },
-
-
-    ]
-
-  }
-  ,
+    ],
+  },
   {
     path: "librarian",
     element: (
@@ -91,13 +89,12 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      { path: "", element:<LibrarianHome/>},
+      { path: "", element: <LibrarianHome /> },
       { path: "add-books", element: <AddBooks /> },
       { path: "my-books", element: <MyBooks /> },
       { path: "edit-books/:id", element: <EditBooks /> },
       { path: "myprofile", element: <MyProfile /> },
       { path: "orders", element: <Orders /> },
-
     ],
   },
   {
@@ -108,7 +105,7 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
-      { path: "", element:<AdminHome/>},
+      { path: "", element: <AdminHome /> },
       { path: "users", element: <Users /> },
       { path: "all-books", element: <AllBooks /> },
       { path: "add-coverage-area", element: <AddCoverageArea /> },
