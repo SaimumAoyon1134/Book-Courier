@@ -33,6 +33,7 @@ import UserLayout from "./User/UserLayout";
 import UserHome from "./User/UserHome";
 import AdminHome from "./Admin/AdminHome";
 import UpdateProfile from "./Shared/UpdateProfile";
+import Invalid from "./Shared/Invalid";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,7 @@ const router = createBrowserRouter([
       },
       { path: "allbooks", element: <AllBooksUser /> },
       { path: "update", element: <UpdateProfile /> },
+      { path: "*", element: <Invalid/>}
     ],
   },
   {
@@ -79,6 +81,7 @@ const router = createBrowserRouter([
       { path: "invoices", element: <Invoices /> },
       { path: "wishlist", element: <Wishlist /> },
       { path: "myprofile", element: <MyProfile /> },
+      
     ],
   },
   {
