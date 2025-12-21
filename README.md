@@ -1,16 +1,77 @@
-# React + Vite
+# 📚 BookCourier (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An online book delivery platform built with **React (Vite)** and **Node.js**, featuring role-based dashboards and secure payments.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Links
+- **Live Site:** https://bookcourier-your-live-link.com
+- **Client Repo:** https://github.com/your-username/bookcourier-client
+- **Server Repo:** https://github.com/your-username/bookcourier-server
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+### 🔐 Authentication
+- Email verification not required
+- Strong password validation
+- Profile image upload & update
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🏠 Home Page
+- Banner with 3 sliders
+- Latest books section 
+- Delivery coverage map
+- Animated section + extra custom sections
+
+### 📚 Books & Orders
+- All Books page 
+- Book Details page with order modal
+- Order status: `pending`
+- Payment status: `unpaid`
+
+### 👤 Dashboards
+- **User:** My Orders, Pay Now, Cancel Order, Profile, Invoices
+- **Librarian:** Add/Edit books, Publish/Unpublish, Manage orders
+- **Admin:** Manage users, Manage books, Delete books (cascade delete)
+
+### 💳 Payments
+- Stripe payment integration
+- Secure checkout with automatic status updates
+
+---
+
+## 🧰 Tech Stack
+
+### Frontend
+- React + Vite
+- React Router DOM
+- Axios
+- Tailwind CSS / DaisyUI
+- SweetAlert2
+- Material UI Icons
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Stripe
+- dotenv
+
+---
+
+## 📦 NPM Packages
+
+### Client
+```bash
+npm install react-router-dom axios sweetalert2 @mui/icons-material
+```
+### Server 
+```bash
+npm install express mongodb cors dotenv stripe
+```
+### Run Locally
+```bash
+npm install
+npm run dev
+```
