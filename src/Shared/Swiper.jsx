@@ -11,14 +11,14 @@ const ContinuousSwiper = () => {
   const navigate = useNavigate();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const {isLoading} = useContext(AuthContext)
+  const { isLoading } = useContext(AuthContext);
 
- useEffect(() => {
+  useEffect(() => {
     instance
       .get("/books")
       .then((res) => {
         const publishedBooks = res.data.filter(
-          (book) => book.status == "published"
+          (book) => book.status === "published"
         );
         setBooks(publishedBooks);
       })
@@ -26,16 +26,26 @@ const ContinuousSwiper = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  
+  if (isLoading || loading) return <Loading />;
 
-  if (isLoading) return <Loading/>;
+  // Duplicate slides if less than 6 for smoother loop
+  const loopedBooks = books.length < 6 ? [...books, ...books] : books;
+
+  // Function to calculate slidesPerView dynamically
+  const getSlidesPerView = (width) => {
+    if (width < 500) return Math.min(1, books.length);
+    if (width < 750) return Math.min(2, books.length);
+    if (width < 1000) return Math.min(3, books.length);
+    if (width < 1250) return Math.min(4, books.length);
+    return Math.min(5, books.length);
+  };
 
   return (
     <div className="my-10">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={20}
-        loop={true}
+        loop={books.length > 1} // Enable loop only if more than 1 book
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
@@ -44,15 +54,15 @@ const ContinuousSwiper = () => {
         freeMode={true}
         allowTouchMove={false}
         breakpoints={{
-          250: { slidesPerView: 1 },
-          500: { slidesPerView: 2 },
-          750: { slidesPerView: 3 },
-          1000: { slidesPerView: 4 },
-          1250: { slidesPerView: 5 },
+          250: { slidesPerView: getSlidesPerView(250) },
+          500: { slidesPerView: getSlidesPerView(500) },
+          750: { slidesPerView: getSlidesPerView(750) },
+          1000: { slidesPerView: getSlidesPerView(1000) },
+          1250: { slidesPerView: getSlidesPerView(1250) },
         }}
       >
-        {books.map((item) => (
-          <SwiperSlide key={item._id}>
+        {loopedBooks.map((item, index) => (
+          <SwiperSlide key={`${item._id}-${index}`}>
             <div
               className="flex flex-col items-center justify-center rounded-xl p-4 h-[300px] cursor-pointer"
               onClick={() => navigate(`/book-details/${item._id}`)}
@@ -65,10 +75,9 @@ const ContinuousSwiper = () => {
                 alt={item.name}
                 className="w-full h-50 object-cover rounded-lg mb-2"
               />
-              <p className="text-center  font-extrabold">{item.name}</p>
-              <p className="text-center  text-[#f75408]">{item.author}</p>
-              <p className="text-center font-bold">TK.{item.price} </p>
-             
+              <p className="text-center font-extrabold">{item.name}</p>
+              <p className="text-center text-[#f75408]">{item.author}</p>
+              <p className="text-center font-bold">TK.{item.price}</p>
             </div>
           </SwiperSlide>
         ))}
