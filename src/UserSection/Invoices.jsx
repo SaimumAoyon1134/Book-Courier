@@ -52,7 +52,7 @@ const Invoices = () => {
 
             <tbody>
               {invoices.map((inv, index) => (
-                <tr key={inv._id} className="hover:bg-purple-50">
+                <tr key={inv._id} className="hover:scale-[1.02]">
                   <td className="font-bold text-purple-600">{index + 1}</td>
                   <td className="font-semibold">{inv.paymentId}</td>
                   <td  className="font-semibold">{inv.bookName}</td>
