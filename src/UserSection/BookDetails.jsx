@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../Context/AuthContext";
 import { toast } from "react-toastify";
 import WishlistHeart from "./WishListHeart";
+import Loading from "../Shared/Loading";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -118,9 +119,7 @@ const BookDetails = () => {
   
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-[60vh]">
-        <p className="animate-pulse">Loading book details...</p>
-      </div>
+      <Loading/>
     );
   }
 

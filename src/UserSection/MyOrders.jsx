@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import instance from "../Axios/instance";
 import { AuthContext } from "../Context/AuthContext";
 import CancelIcon from "@mui/icons-material/Cancel";
+import Loading from "../Shared/Loading";
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     instance
@@ -14,13 +16,19 @@ const MyOrders = () => {
       })
       .catch((error) => {
         console.error("Error fetching orders:", error);
-      });
+      })
+      .finally(() => setLoading(false));
   }, [user.email]);
   const handlePayment = async (order) => {
     const res = await instance.post("/create-checkout-session", order);
 
     window.location.assign(res.data.url);
   };
+  if (loading) {
+    return (
+      <Loading/>
+    );
+  }
   return (
     <div className="min-h-screen flex  justify-center px-0 md:px-4">
       <div className="w-full   rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">

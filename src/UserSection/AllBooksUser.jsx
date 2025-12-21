@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import instance from "../Axios/instance";
 import { Link } from "react-router-dom";
+import Loading from "../Shared/Loading";
 
 const AllBooksUser = () => {
   const [books, setBooks] = useState([]);
@@ -46,9 +47,7 @@ const AllBooksUser = () => {
 
   if (loading) {
     return (
-      <div className="text-center py-20 font-semibold">
-        Loading books...
-      </div>
+      <Loading/>
     );
   }
 

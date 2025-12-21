@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import instance from "../Axios/instance";
 import { AuthContext } from "../Context/AuthContext";
+import Loading from "../Shared/Loading";
 
 const Invoices = () => {
   const { user } = useContext(AuthContext);
   const [invoices, setInvoices] = useState([]);
+  const [loading, setLoading]=useState(true)
 
   useEffect(() => {
     if (!user?.email) return;
@@ -18,8 +20,16 @@ const Invoices = () => {
         );
         setInvoices(paidOrders);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
+
   }, [user?.email]);
+  if (loading) {
+    return (
+      <Loading/>
+    );
+  }
+
 
   return (
     <div className="min-h-screen px-5 mb:px-10  flex justify-center ">
