@@ -5,9 +5,8 @@ An online book delivery platform built with **React (Vite)** and **Node.js**, fe
 ---
 
 ## 🔗 Live Links
-- **Live Site:** https://bookcourier-your-live-link.com
-- **Client Repo:** https://github.com/your-username/bookcourier-client
-- **Server Repo:** https://github.com/your-username/bookcourier-server
+- **Live Site:** https://bookcourier-5fe9d.web.app/
+
 
 ---
 

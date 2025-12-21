@@ -22,7 +22,7 @@ const MyOrders = () => {
     window.location.assign(res.data.url);
   };
   return (
-    <div className="min-h-screen flex  justify-center  px-4">
+    <div className="min-h-screen flex  justify-center px-0 md:px-4">
       <div className="w-full   rounded-lg shadow-md p-6 animate__animated animate__fadeInDown">
         <h2 className="text-2xl font-semibold text-center mb-6 ">My Orders</h2>
         <div className="overflow-x-auto">
