@@ -32,7 +32,7 @@ const AllBooks = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         const newStatus =
-          book.status === "published" ? "pending" : "published";
+          book.status === "published" ? "unpublished" : "published";
 
         instance
           .patch(`/books-admin/${book._id}`, { status: newStatus })
@@ -47,6 +47,39 @@ const AllBooks = () => {
             }
           })
           .catch((err) => console.error(err));
+      }
+    });
+  };
+  
+    const handleDelete = (bookId) => {
+    Swal.fire({
+      title: "Delete this book?",
+      text:
+        "This will permanently delete the book, its orders, wishlist items, and reviews!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it",
+      confirmButtonColor: "#d33",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        instance
+          .delete(`/books/${bookId}`)
+          .then((res) => {
+            if (res.data.success) {
+              setBooks((prev) =>
+                prev.filter((book) => book._id !== bookId)
+              );
+              Swal.fire(
+                "Deleted!",
+                "Book and all related data removed.",
+                "success"
+              );
+            }
+          })
+          .catch((err) => {
+            console.error(err);
+            Swal.fire("Error!", "Failed to delete book", "error");
+          });
       }
     });
   };
@@ -116,6 +149,7 @@ const AllBooks = () => {
                   <td>
                     <button
                       className="btn btn-ghost"
+                      onClick={() => handleDelete(book._id)}
                       
                     >
                       <DeleteForeverIcon />

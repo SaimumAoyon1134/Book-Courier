@@ -6,6 +6,7 @@ import ThemeToggle from "../Shared/ThemeToggle";
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import AddLocationAltIcon from '@mui/icons-material/AddLocationAlt';
+import Footer from "../Shared/Footer";
 
 const AdminLayout = () => {
   return (
@@ -42,6 +43,7 @@ const AdminLayout = () => {
           </nav>
 
           <Outlet />
+          <Footer/>
         </div>
 
         <div className="drawer-side is-drawer-close:overflow-visible">

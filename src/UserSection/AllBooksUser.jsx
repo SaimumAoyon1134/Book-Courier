@@ -14,7 +14,7 @@ const AllBooksUser = () => {
       .get("/books")
       .then((res) => {
         const publishedBooks = res.data.filter(
-          (book) => book.status === "published"
+          (book) => book.status == "published"
         );
         setBooks(publishedBooks);
       })
@@ -89,7 +89,7 @@ const AllBooksUser = () => {
           {filteredBooks.map((book) => (
             <div
               key={book._id}
-              className="rounded-lg shadow-md hover:shadow-lg transition bg-white"
+              className="rounded-lg shadow-md hover:shadow-lg transition "
             >
               <img
                 src={book.image}

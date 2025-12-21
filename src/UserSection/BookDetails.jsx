@@ -220,19 +220,19 @@ const BookDetails = () => {
 
     
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
-          <div className="bg-white p-6 rounded w-96">
-            <h2 className="text-xl font-bold mb-4">Place Order</h2>
+        <div className="fixed inset-0   flex justify-center items-center">
+          <div className=" p-6 rounded bg-gray-100 text-black w-96">
+            <h2 className="text-xl font-bold mb-4 text-black">Place Order</h2>
 
             <input
               readOnly
               value={user?.displayName}
-              className="w-full border p-2 mb-2 bg-gray-100"
+              className="w-full border p-2 mb-2 "
             />
             <input
               readOnly
               value={user?.email}
-              className="w-full border p-2 mb-2 bg-gray-100"
+              className="w-full border p-2 mb-2 "
             />
 
             <input

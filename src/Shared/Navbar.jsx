@@ -74,7 +74,7 @@ const Navbar = () => {
               to="/librarian"
               className={({ isActive }) => (isActive ? active : inactive)}
             >
-              Librarian Panel
+              Librarian Dashboard
             </NavLink>
           </li>
         </>
@@ -87,7 +87,7 @@ const Navbar = () => {
               to="/admin"
               className={({ isActive }) => (isActive ? active : inactive)}
             >
-              Admin Panel
+              Admin Dashboard
             </NavLink>
           </li>
         </>

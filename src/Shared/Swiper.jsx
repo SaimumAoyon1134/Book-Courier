@@ -9,23 +9,24 @@ import { AuthContext } from "../Context/AuthContext";
 
 const ContinuousSwiper = () => {
   const navigate = useNavigate();
-  const [services, setServices] = useState([]);
+  const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const {isLoading} = useContext(AuthContext)
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const res = await instance.get("/allbooks")
-        setServices(res.data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchServices();
+ useEffect(() => {
+    instance
+      .get("/books")
+      .then((res) => {
+        const publishedBooks = res.data.filter(
+          (book) => book.status == "published"
+        );
+        setBooks(publishedBooks);
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, []);
+
+  
 
   if (isLoading) return <Loading/>;
 
@@ -50,7 +51,7 @@ const ContinuousSwiper = () => {
           1250: { slidesPerView: 5 },
         }}
       >
-        {services.map((item) => (
+        {books.map((item) => (
           <SwiperSlide key={item._id}>
             <div
               className="flex flex-col items-center justify-center rounded-xl p-4 h-[300px] cursor-pointer"
