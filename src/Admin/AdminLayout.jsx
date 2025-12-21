@@ -53,7 +53,7 @@ const AdminLayout = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="flex min-h-full flex-col items-start bg-[#07ad34] font-bold  is-drawer-close:w-14 is-drawer-open:w-64">
+          <div className="flex min-h-full flex-col items-start bg-[#07ad34] font-bold  is-drawer-close:w-14 is-drawer-open:w-50">
             {/* Sidebar content here */}
             <ul className="menu w-full  grow pt-15">
               {/* List item */}

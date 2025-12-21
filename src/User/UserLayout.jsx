@@ -53,7 +53,7 @@ const UserLayout = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="flex min-h-full flex-col bg-[#07ad34] items-start  is-drawer-close:w-14 is-drawer-open:w-64">
+          <div className="flex min-h-full flex-col bg-[#07ad34] items-start  is-drawer-close:w-14 is-drawer-open:w-50">
             {/* Sidebar content here */}
             <ul className="menu w-full grow pt-15  font-bold ">
               {/* List item */}
