@@ -84,7 +84,7 @@ const Login = () => {
       </h1>
       <div className="hero">
         <div className="card w-full max-w-sm shrink-0 shadow-2xl">
-          <div className="card-body bg-[#c3fc7d]">
+          <div className="card-body bg-[#c3fc7d] text-black">
             <form onSubmit={handleSubmit}>
               <fieldset className="fieldset">
                 <label className="label">Email</label>
@@ -105,7 +105,7 @@ const Login = () => {
                     name="password"
                   />
                   <span
-                    className="absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+                    className="absolute right-10 top-1/2 transform -translate-y-1/2  cursor-pointer"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <FaEyeSlash /> : <FaEye />}

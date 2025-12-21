@@ -29,8 +29,8 @@ const {reset}=useContext(AuthContext)
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="card w-full max-w-md shadow-2xl bg-base-100">
+    <div className="hero  ">
+      <div className="card w-full max-w-md shadow-2xl py-5 ">
         <div className="card-body">
           <h2 className="text-2xl font-bold text-center mb-4">
             Reset Your Password

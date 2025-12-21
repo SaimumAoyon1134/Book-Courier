@@ -9,7 +9,7 @@ const Navbar = () => {
   const active =
     "  text-[#f75408] rounded-md  transition duration-300 font-extrabold";
   const inactive =
-    "  text-gray-700 hover:text-[#f75408] rounded-md  transition duration-300 font-extrabold";
+    "   hover:text-[#f75408] rounded-md  transition duration-300 font-extrabold";
 
   const { user, logOut, isLoading, librarian, admin } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -46,14 +46,7 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      <li>
-        <NavLink
-          to="/coverage"
-          className={({ isActive }) => (isActive ? active : inactive)}
-        >
-          Coverage
-        </NavLink>
-      </li>
+     
       {user && (
         <>
           <li>
@@ -117,7 +110,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content  rounded-box z-100 bg-[#68ba11]  mt-5 w-52 p-2 shadow"
           >
             {links}
           </ul>
