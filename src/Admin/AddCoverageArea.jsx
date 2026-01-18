@@ -34,7 +34,7 @@ const AddCoverageArea = () => {
   };
 
   return (
-    <div className="flex justify-center  px-4">
+    <div className="flex justify-center  px-5 md:px-15 min-h-screen">
       <div className="w-full   p-6 rounded shadow">
         <h2 className="text-2xl font-bold text-center mb-6 ">
           Add Coverage Area

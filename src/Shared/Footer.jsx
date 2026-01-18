@@ -1,5 +1,6 @@
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import XIcon from '@mui/icons-material/X';
+import { NavLink } from "react-router";
 
 const Footer = () => {
   return (
@@ -18,10 +19,10 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-white mb-3">Quick Links</h4>
           <ul className="space-y-2">
-            <li className="hover:text-white cursor-pointer">Home</li>
-            <li className="hover:text-white cursor-pointer">Books</li>
-            <li className="hover:text-white cursor-pointer">Coverage Area</li>
-            <li className="hover:text-white cursor-pointer">Contact</li>
+            <li  className="hover:text-white cursor-pointer"><NavLink to="/aboutus">About Us</NavLink></li>
+            <li className="hover:text-white cursor-pointer"><NavLink to="/allbooks">Books</NavLink></li>
+            <li className="hover:text-white cursor-pointer"><NavLink to="/coverage">Coverage Area</NavLink></li>
+         
           </ul>
         </div>
 

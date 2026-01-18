@@ -34,6 +34,10 @@ import UserHome from "./User/UserHome";
 import AdminHome from "./Admin/AdminHome";
 import UpdateProfile from "./Shared/UpdateProfile";
 import Invalid from "./Shared/Invalid";
+import AboutUs from "./Shared/AboutUs";
+import About from "./Shared/About";
+import Contact from "./Shared/Contact";
+import HelpSupport from "./Shared/HelpSupport";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +50,11 @@ const router = createBrowserRouter([
       { path: "myprofile", element: <MyProfile /> },
       { path: "forget-password", element: <ForgetPassword /> },
       { path: "coverage", element: <Coverage /> },
+      { path: "aboutus", element: <AboutUs /> },
+      { path: "about", element: <About /> },
+      { path: "contact", element: <Contact /> },
+      { path: "help", element: <HelpSupport /> },
+      { path: "support", element: <HelpSupport /> },
       {
         path: "book-details/:id",
         element: (
@@ -56,7 +65,7 @@ const router = createBrowserRouter([
       },
       { path: "allbooks", element: <AllBooksUser /> },
       { path: "update", element: <UpdateProfile /> },
-      { path: "*", element: <Invalid/>}
+      { path: "*", element: <Invalid /> },
     ],
   },
   {
@@ -81,7 +90,6 @@ const router = createBrowserRouter([
       { path: "invoices", element: <Invoices /> },
       { path: "wishlist", element: <Wishlist /> },
       { path: "myprofile", element: <MyProfile /> },
-      
     ],
   },
   {

@@ -26,7 +26,9 @@ const MyOrders = () => {
   };
   if (loading) {
     return (
-      <Loading/>
+     <div className="flex justify-center items-center h-screen">
+        <Loading />
+      </div>
     );
   }
   return (

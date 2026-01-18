@@ -6,7 +6,7 @@ const More= () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative  h-[300px] flex items-center justify-center overflow-hidden">
+    <section className="relative px-3 md:px-15 h-[300px] flex items-center justify-center overflow-hidden">
       <div className="text-center z-10">
         <h1 className="text-xl  font-bold mb-4 animate-pulse text-[#f75408] ">
           BookCourier

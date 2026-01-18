@@ -26,7 +26,9 @@ const Invoices = () => {
   }, [user?.email]);
   if (loading) {
     return (
-      <Loading/>
+      <div className="flex justify-center items-center h-screen">
+        <Loading />
+      </div>
     );
   }
 

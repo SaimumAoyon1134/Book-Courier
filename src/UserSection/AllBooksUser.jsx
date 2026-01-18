@@ -47,12 +47,14 @@ const AllBooksUser = () => {
 
   if (loading) {
     return (
-      <Loading/>
+      <div className="flex justify-center items-center h-screen">
+        <Loading />
+      </div>
     );
   }
 
   return (
-    <div className="px-5 md:px-10 py-6">
+    <div className="px-3 min-h-screen md:px-15 py-6">
       <h1 className="text-2xl font-bold text-center mb-6">
         📚 Available Books
       </h1>
@@ -84,11 +86,11 @@ const AllBooksUser = () => {
           No books found
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
           {filteredBooks.map((book) => (
             <div
               key={book._id}
-              className="rounded-lg shadow-md hover:shadow-lg transition "
+              className="rounded-lg shadow-md hover:shadow-lg shadow-green-500/40 transition "
             >
               <img
                 src={book.image}
@@ -111,7 +113,7 @@ const AllBooksUser = () => {
 
                 <Link
                   to={`/book-details/${book._id}`}
-                  className="inline-block mt-4 w-full text-center text-sm text-white bg-[#ef610e] px-4 py-2 rounded-full hover:opacity-90"
+                  className="inline-block mt-4 w-full text-center text-sm text-white bg-[#68ba11]  px-4 py-2 rounded-full hover:opacity-90"
                 >
                   View Details
                 </Link>

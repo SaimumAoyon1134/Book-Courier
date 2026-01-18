@@ -4,17 +4,20 @@ import { AuthContext } from "../Context/AuthContext";
 import { FaTrash } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import Loading from "../Shared/Loading";
 
 const Wishlist = () => {
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const { user, isLoading } = useContext(AuthContext);
   const [wishlist, setWishlist] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (user?.email) {
       instance
         .get(`/wishlist?email=${user.email}`)
-        .then((res) => setWishlist(res.data));
+        .then((res) => setWishlist(res.data))
+        .finally(() => setLoading(false));
     }
   }, [user]);
 
@@ -26,9 +29,15 @@ const Wishlist = () => {
       }
     });
   };
-
+  if (loading) {
+    return (
+     <div className="flex justify-center items-center h-screen">
+        <Loading />
+      </div>
+    );
+  }
   return (
-    <div className="max-w-7xl mx-auto py-12 px-4">
+    <div className="min-h-screen mx-auto py-12 px-4">
 
       <h2 className="text-xl font-extrabold mb-10 text-center">
         ❤️ My Wishlist

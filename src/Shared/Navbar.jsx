@@ -46,7 +46,6 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-     
       {user && (
         <>
           <li>
@@ -57,7 +56,6 @@ const Navbar = () => {
               User Dashboard
             </NavLink>
           </li>
-          
         </>
       )}
       {user && librarian && (
@@ -85,10 +83,26 @@ const Navbar = () => {
           </li>
         </>
       )}
+      <li>
+        <NavLink
+          to="/aboutus"
+          className={({ isActive }) => (isActive ? active : inactive)}
+        >
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) => (isActive ? active : inactive)}
+        >
+          Contact Us
+        </NavLink>
+      </li>
     </>
   );
   return (
-    <div className="navbar shadow-sm bg-[#68ba11]  px-4">
+    <div className="navbar shadow-sm bg-[#68ba11] px-4 sticky top-0 z-500">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

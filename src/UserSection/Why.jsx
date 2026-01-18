@@ -27,34 +27,34 @@ const Why = () => {
   ];
 
   return (
-    <div className="py-12 px-4 md:px-10 lg:px-20">
+    <div className="py-12 px-3 md:px-15">
       <div className="text-center">
         <h1 className="text-xl md:text-3xl font-bold py-3 flex items-center justify-center gap-2">
           <span className="text-[#f75408] font-bold">Why Choose</span>
           <span className="text-[#74bb29] font-bold">Book Courier?</span>
         </h1>
 
-        <p className="font-light mb-10 text-gray-700 text-sm md:text-base">
+        <p className="font-light mb-10  text-sm md:text-base">
           Discover why Book Courier is the best place to buy books online.
         </p>
       </div>
 
       {/* Grid Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-8">
         {features.map((feature, index) => (
           <div
             key={index}
-            className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+            className="p-6 rounded-lg shadow-md shadow-green-500/40 hover:shadow-lg transition duration-300"
           >
             <div className={`mb-4 mx-auto w-fit ${feature.animation}`}>
               {feature.icon}
             </div>
 
-            <h3 className="text-lg md:text-xl font-semibold mb-2 text-gray-800">
+            <h3 className="text-lg md:text-xl font-semibold mb-2 ">
               {feature.title}
             </h3>
 
-            <p className="text-gray-600 text-sm md:text-base">
+            <p className="text-gray-200 text-sm md:text-base">
               {feature.description}
             </p>
           </div>

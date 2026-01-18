@@ -24,7 +24,7 @@ const Coverage = () => {
   });
 
   return (
-    <div className="px-1 md:px-10 py-4">
+    <div className="px-3 md:px-15 py-4">
       <h1 className="text-center font-bold text-xl py-3 flex items-center justify-center gap-2">
         <AddLocationIcon className="text-[#748603] animate-[blink_2s_infinite]" />
         <span className="text-[#f75408]">Coverage Area</span>
