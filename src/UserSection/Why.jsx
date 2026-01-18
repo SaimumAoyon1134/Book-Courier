@@ -54,7 +54,7 @@ const Why = () => {
               {feature.title}
             </h3>
 
-            <p className="text-gray-200 text-sm md:text-base">
+            <p className=" text-sm md:text-base">
               {feature.description}
             </p>
           </div>
